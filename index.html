@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PsgTimer</title>
+    <link rel="stylesheet" type="text/css" href="css/psgTimer.css"/>
+</head>
+<body>
+    <div id="firstTimer"></div>
+    <div id="secondTimer" data-timer-end="26.07.2018 11:00 UTC-02:45"></div>
+    <div id="thirdTimer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var timer = new PsgTimer({
+                selector: '#firstTimer',
+                currentDateTime: Date.UTC(2018, 0, 26, 12, 0, 0),
+                endDateTime: 'UTC+02:00 26.02.2018 13:00:00',
+                multilpeBlocks: true,
+                animation: 'fade',
+                labels: {
+                    days: 'Days',
+                    hours: 'Hours',
+                    minutes: 'minutes',
+                    seconds: 'seconds'
+                },
+                callbacks: {
+                    onInit: function () {
+                        console.log('Hello world!');
+                    }
+                }
+            });
+
+            var timer2 = new PsgTimer('#secondTimer');
+
+            var timer3 = new PsgTimer('#thirdTimer', {
+                endDateTime: Date.UTC(2019, 3, 16, 0, 0, 0),
+                labels: {
+                    days: 'Дні',
+                    hours: 'Години',
+                    minutes: 'Хвилини',
+                    seconds: 'Секунди'
+                }
+            });
+        })
+    </script>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.psgTimer.js"></script>
+</body>
+</html>
